@@ -12,7 +12,6 @@
 
 #include <SatellitePropagatorExamples/applicationOutput.h>
 
-
 //! Execute propagation of orbits of Apollo during entry using the JSON Interface.
 int main( )
 {
@@ -56,4 +55,3 @@ int main( )
 
     return EXIT_SUCCESS;
 }
-

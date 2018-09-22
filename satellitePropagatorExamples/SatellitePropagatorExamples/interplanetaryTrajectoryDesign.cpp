@@ -54,17 +54,17 @@ int main( )
     // Create the ephemeris vector.
     std::vector< ephemerides::EphemerisPointer >
             ephemerisVector( numberOfLegs );
-    ephemerisVector[ 0 ] = boost::make_shared< ephemerides::ApproximatePlanetPositions >(
+    ephemerisVector[ 0 ] = std::make_shared< ephemerides::ApproximatePlanetPositions >(
                 ephemerides::ApproximatePlanetPositionsBase::BodiesWithEphemerisData::earthMoonBarycenter );
-    ephemerisVector[ 1 ] = boost::make_shared< ephemerides::ApproximatePlanetPositions >(
+    ephemerisVector[ 1 ] = std::make_shared< ephemerides::ApproximatePlanetPositions >(
                 ephemerides::ApproximatePlanetPositionsBase::BodiesWithEphemerisData::venus );
-    ephemerisVector[ 2 ] = boost::make_shared< ephemerides::ApproximatePlanetPositions >(
+    ephemerisVector[ 2 ] = std::make_shared< ephemerides::ApproximatePlanetPositions >(
                 ephemerides::ApproximatePlanetPositionsBase::BodiesWithEphemerisData::venus );
-    ephemerisVector[ 3 ] = boost::make_shared< ephemerides::ApproximatePlanetPositions >(
+    ephemerisVector[ 3 ] = std::make_shared< ephemerides::ApproximatePlanetPositions >(
                 ephemerides::ApproximatePlanetPositionsBase::BodiesWithEphemerisData::earthMoonBarycenter );
-    ephemerisVector[ 4 ] = boost::make_shared< ephemerides::ApproximatePlanetPositions >(
+    ephemerisVector[ 4 ] = std::make_shared< ephemerides::ApproximatePlanetPositions >(
                 ephemerides::ApproximatePlanetPositionsBase::BodiesWithEphemerisData::jupiter );
-    ephemerisVector[ 5 ] = boost::make_shared< ephemerides::ApproximatePlanetPositions >(
+    ephemerisVector[ 5 ] = std::make_shared< ephemerides::ApproximatePlanetPositions >(
                 ephemerides::ApproximatePlanetPositionsBase::BodiesWithEphemerisData::saturn );
 
     // Create gravitational parameter vector
@@ -139,15 +139,15 @@ int main( )
 
     // Create the ephemeris vector.
     ephemerisVector.resize( numberOfLegs );
-    ephemerisVector[ 0 ] = boost::make_shared< ephemerides::ApproximatePlanetPositions >(
+    ephemerisVector[ 0 ] = std::make_shared< ephemerides::ApproximatePlanetPositions >(
                 ephemerides::ApproximatePlanetPositionsBase::BodiesWithEphemerisData::earthMoonBarycenter );
-    ephemerisVector[ 1 ] = boost::make_shared< ephemerides::ApproximatePlanetPositions >(
+    ephemerisVector[ 1 ] = std::make_shared< ephemerides::ApproximatePlanetPositions >(
                 ephemerides::ApproximatePlanetPositionsBase::BodiesWithEphemerisData::earthMoonBarycenter );
-    ephemerisVector[ 2 ] = boost::make_shared< ephemerides::ApproximatePlanetPositions >(
+    ephemerisVector[ 2 ] = std::make_shared< ephemerides::ApproximatePlanetPositions >(
                 ephemerides::ApproximatePlanetPositionsBase::BodiesWithEphemerisData::venus );
-    ephemerisVector[ 3 ] = boost::make_shared< ephemerides::ApproximatePlanetPositions >(
+    ephemerisVector[ 3 ] = std::make_shared< ephemerides::ApproximatePlanetPositions >(
                 ephemerides::ApproximatePlanetPositionsBase::BodiesWithEphemerisData::venus );
-    ephemerisVector[ 4 ] = boost::make_shared< ephemerides::ApproximatePlanetPositions >(
+    ephemerisVector[ 4 ] = std::make_shared< ephemerides::ApproximatePlanetPositions >(
                 ephemerides::ApproximatePlanetPositionsBase::BodiesWithEphemerisData::mercury );
 
     // Create gravitational parameter vector
@@ -247,7 +247,7 @@ int main( )
 
     // Earth
     returnSingleRevolutionPlanetTrajectory(
-                boost::make_shared< ephemerides::ApproximatePlanetPositions >(
+                std::make_shared< ephemerides::ApproximatePlanetPositions >(
                                 ephemerides::ApproximatePlanetPositionsBase::BodiesWithEphemerisData::earthMoonBarycenter ),
             sunGravitationalParameter,
             1171.64503236,
@@ -257,7 +257,7 @@ int main( )
 
     // Venus
     returnSingleRevolutionPlanetTrajectory(
-                boost::make_shared< ephemerides::ApproximatePlanetPositions >(
+                std::make_shared< ephemerides::ApproximatePlanetPositions >(
                                 ephemerides::ApproximatePlanetPositionsBase::BodiesWithEphemerisData::venus ),
             sunGravitationalParameter,
             1171.64503236,
@@ -267,7 +267,7 @@ int main( )
 
     // Mercury
     returnSingleRevolutionPlanetTrajectory(
-                boost::make_shared< ephemerides::ApproximatePlanetPositions >(
+                std::make_shared< ephemerides::ApproximatePlanetPositions >(
                                 ephemerides::ApproximatePlanetPositionsBase::BodiesWithEphemerisData::mercury ),
             sunGravitationalParameter,
             1171.64503236,

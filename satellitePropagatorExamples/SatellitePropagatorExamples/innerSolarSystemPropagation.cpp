@@ -51,7 +51,7 @@ int main( )
     bodyNames[ 5 ] = "Sun";
 
     // Create bodies needed in simulation
-    std::map< std::string, boost::shared_ptr< BodySettings > > bodySettings =
+    std::map< std::string, std::shared_ptr< BodySettings > > bodySettings =
             getDefaultBodySettings( bodyNames );
     NamedBodyMap bodyMap = createBodies( bodySettings );
     setGlobalFrameBodyEphemerides( bodyMap, "SSB", "ECLIPJ2000" );
@@ -67,14 +67,14 @@ int main( )
         SelectedAccelerationMap accelerationMap;
         for( unsigned int i = 0; i < bodyNames.size( ); i++ )
         {
-            std::map< std::string, std::vector< boost::shared_ptr< AccelerationSettings > > > currentAccelerations;
+            std::map< std::string, std::vector< std::shared_ptr< AccelerationSettings > > > currentAccelerations;
             for( unsigned int j = 0; j < bodyNames.size( ); j++ )
             {
                 // Create central gravity acceleration between each 2 bodies.
                 if( i != j )
                 {
                     currentAccelerations[ bodyNames.at( j ) ].push_back(
-                                boost::make_shared< AccelerationSettings >( central_gravity ) );\
+                                std::make_shared< AccelerationSettings >( central_gravity ) );\
                 }
             }
             accelerationMap[ bodyNames.at( i ) ] = currentAccelerations;
@@ -137,13 +137,13 @@ int main( )
                     bodiesToPropagate, centralBodies, bodyMap, initialEphemerisTime );
 
 
-        boost::shared_ptr< TranslationalStatePropagatorSettings< double > > propagatorSettings =
-                boost::make_shared< TranslationalStatePropagatorSettings< double > >
+        std::shared_ptr< TranslationalStatePropagatorSettings< double > > propagatorSettings =
+                std::make_shared< TranslationalStatePropagatorSettings< double > >
                 ( centralBodies, accelerationModelMap, bodiesToPropagate, systemInitialState, finalEphemerisTime );
 
         // Define numerical integrator settings.
-        boost::shared_ptr< IntegratorSettings< > > integratorSettings =
-                boost::make_shared< IntegratorSettings< > >
+        std::shared_ptr< IntegratorSettings< > > integratorSettings =
+                std::make_shared< IntegratorSettings< > >
                 ( rungeKutta4, initialEphemerisTime, 3600.0 );
 
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
