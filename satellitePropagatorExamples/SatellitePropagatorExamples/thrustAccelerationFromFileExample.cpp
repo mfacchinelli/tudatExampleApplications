@@ -15,7 +15,7 @@
 //! Execute propagation of orbit of vehicle around the Earth. The vehicle is subject to a thrustforce, which is specified in
 //! the nonconstantThrust.txt file. In that file, the first column is time in seconds, the last three columns give the x, y
 //! and z components of the thrust force in the J2000 (?) frame.
-int main()
+int main( )
 {
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ///////////////////////            USING STATEMENTS              //////////////////////////////////////////////////////

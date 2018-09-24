@@ -71,6 +71,8 @@ PropagationTargetingProblem::PropagationTargetingProblem(
 
     //Create bodyMap and add the satellite as an empty body
     bodyMap_ = simulation_setup::createBodies( bodySettings );
+    bodyMap_[ "Satellite" ] = std::make_shared< Body >( );
+    setGlobalFrameBodyEphemerides( bodyMap_, "Earth", "J2000" );
 }
 
 
@@ -88,10 +90,6 @@ std::vector<double> PropagationTargetingProblem::fitness(const std::vector<doubl
 
     const double earthRotationRate = 2.0 * mathematical_constants::PI / physical_constants::SIDEREAL_DAY;
     const double fixedStepSize = 2.0;
-
-    bodyMap_["Satellite"] = std::make_shared<Body>();
-
-    setGlobalFrameBodyEphemerides( bodyMap_, "Earth", "J2000" );
 
     //Define position of the target at 35000 km from Earth at 30 deg latitude
     Eigen::Vector3d target;
